@@ -1,0 +1,29 @@
+
+Reflection:
+First solution:
+1. I tried to let robot, sensor and inspector have more functions such as sense, but it is 
+really hard to notify them when these classes wait. So, I designed these functions to the belt where the function of wait can be invoked. And I learned that notify and wait only work when they have a same instance.
+
+2. I found that it would have a deadlock when both the segment 3 and inspector have a bike. My solution is that when a bike is sensed to be tagged, the belt will pause until the bike is back to segment 3 so that it can guarantee every tagged bikes can be sensed.
+
+3.Some functions were execute repeatedly in wrong, it was because I did not write “while wait” function to make the process wait. I learned that we have to design carefully in the wait function for the thread.
+
+4.For the work time, my implementation is that when the method is notified by relevant method, it start sleeping for specific time, then finish their job immediately.
+
+5.Since the probability of bike being tagged is so low, so it is hard to test, so I changed to param when I programmed.
+
+6.I found the log is hard to read, so I change the colour and format of some outputs.
+
+7.I gave bike a more attribute of “inspected”, the sensor will not sense the bike again if the bike value of inspected is true.
+
+
+Second solution:
+1.For consuming 2 belts, I designed a handler which consume the short belt. And the handler and consumer work at the same time, so I regard it as 2 consumers.
+
+2.I defined 2 variables which are used in same function in fact, and because of this mistake, I took long time to debug why the function is not invoked. I learned that I should comment when I programming so I can understand more thoroughly on my code.
+
+
+Basically, my results are in a good format and correct.
+
+
+ 
